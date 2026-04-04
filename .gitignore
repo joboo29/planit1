@@ -2,4 +2,5 @@
 /planit1/out
 /out/
 /.idea/
+*.class
 /planit1.iml

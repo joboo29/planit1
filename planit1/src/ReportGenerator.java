@@ -16,6 +16,7 @@ public class ReportGenerator {
         System.out.println("Name: " + callCenter);
         CallCenter cc = new CallCenter();
         List<Number> callData = new ArrayList<>();
+        //Create data
         for (int i=0; i < 100; i++) {
             indexNumber++;
             callData.add(indexNumber);
@@ -25,10 +26,15 @@ public class ReportGenerator {
             callData.add(serviceLevel);
         }
 
-        cc.setInboundCalls(150 + (int)(Math.random() * 51));
-        System.out.println("Inbound Calls: " + cc.getInboundCalls());
-        cc.setOutboundCalls(50 + (int)(Math.random() * 51));
-        System.out.println("Outbound Calls: " + cc.getOutboundCalls());
+        int timeInterval = 24;
+
+        CallCenter callCenter1 = new CallCenter(callData, timeInterval);
+        callCenter1.processCallData();
+
+        System.out.printf("Arrival Rate is %.3f%n", callCenter1.getArrivalRate());
+        System.out.printf("Average Handle Time is %.3f%n", callCenter1.getAverageHandleTime());
+        System.out.printf("Average Service Level is %.3f%n", callCenter1.getAverageServiceLevel());
+        System.out.print("Thank you!");
     }
 
 }
